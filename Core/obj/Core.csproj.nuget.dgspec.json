@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\DAI_HOC\\DoAnTotNghiep\\BeaShop\\BeaPetAPI\\Core\\Core.csproj": {}
+    "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop\\BeaPetAPI\\Core\\Core.csproj": {}
   },
   "projects": {
-    "D:\\DAI_HOC\\DoAnTotNghiep\\BeaShop\\BeaPetAPI\\Core\\Core.csproj": {
+    "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop\\BeaPetAPI\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaShop\\BeaPetAPI\\Core\\Core.csproj",
+        "projectUniqueName": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop\\BeaPetAPI\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaShop\\BeaPetAPI\\Core\\Core.csproj",
+        "projectPath": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop\\BeaPetAPI\\Core\\Core.csproj",
         "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaShop\\BeaPetAPI\\Core\\obj\\",
+        "outputPath": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop\\BeaPetAPI\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -4,7 +4,7 @@
     {
         public string? Name { get; set; }
         public string? Description { get; set; }
-        public string? Icon { get; set; }
+        //public string? Icon { get; set; }
     }
 
     public class ProductCategoryViewDto
@@ -13,5 +13,7 @@
         public string? Name { get; set; }
         public string? Description { get; set; }
         public string? Icon { get; set; }
+        public int? Quantity { get; set; }
+        public string? Status { get; set; }
     }
 }

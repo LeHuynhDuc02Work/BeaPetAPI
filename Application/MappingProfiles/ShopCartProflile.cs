@@ -10,6 +10,7 @@ namespace Application.MappingProfiles
         {
             CreateMap<ShopCart, ShopCartDto>().ReverseMap();
             CreateMap<ShopCart, ShopCartViewDto>().ReverseMap();
+            CreateMap<ShopCart, ShopCartUpdateDto>().ReverseMap();
         }
     }
 }

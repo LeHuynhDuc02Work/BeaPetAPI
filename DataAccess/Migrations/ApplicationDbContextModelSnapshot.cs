@@ -266,7 +266,7 @@ namespace DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AddressId")
+                    b.Property<int?>("AddressId")
                         .HasColumnType("int");
 
                     b.Property<int>("Code")
@@ -278,8 +278,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("PaymentMethodId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("TotalAmount")
                         .HasColumnType("float");
@@ -290,9 +296,10 @@ namespace DataAccess.Migrations
                     b.Property<DateTime?>("UpdatedOn")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("Id");
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasIndex("AddressId");
+                    b.HasKey("Id");
 
                     b.ToTable("Orders");
 
@@ -368,6 +375,9 @@ namespace DataAccess.Migrations
                     b.Property<DateTime?>("UpdatedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("OrderAddresses");
@@ -412,68 +422,97 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("Core.OrderDetail", b =>
                 {
-                    b.Property<int>("ProductId")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("OrderId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Id")
                         .HasColumnType("int");
 
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.HasKey("ProductId", "OrderId");
-
-                    b.HasIndex("OrderId");
+                    b.HasKey("Id");
 
                     b.ToTable("OrderDetails");
 
                     b.HasData(
                         new
                         {
-                            ProductId = 1,
-                            OrderId = 1,
                             Id = 1,
+                            OrderId = 1,
                             Price = 100.0,
+                            ProductId = 1,
                             Quantity = 10
                         },
                         new
                         {
-                            ProductId = 2,
-                            OrderId = 2,
                             Id = 2,
-                            Price = 100.0,
-                            Quantity = 10
-                        },
-                        new
-                        {
-                            ProductId = 3,
-                            OrderId = 1,
-                            Id = 3,
-                            Price = 100.0,
-                            Quantity = 10
-                        },
-                        new
-                        {
-                            ProductId = 4,
                             OrderId = 2,
-                            Id = 4,
                             Price = 100.0,
+                            ProductId = 2,
                             Quantity = 10
                         },
                         new
                         {
-                            ProductId = 5,
+                            Id = 3,
                             OrderId = 1,
-                            Id = 5,
                             Price = 100.0,
+                            ProductId = 3,
+                            Quantity = 10
+                        },
+                        new
+                        {
+                            Id = 4,
+                            OrderId = 2,
+                            Price = 100.0,
+                            ProductId = 4,
+                            Quantity = 10
+                        },
+                        new
+                        {
+                            Id = 5,
+                            OrderId = 1,
+                            Price = 100.0,
+                            ProductId = 5,
                             Quantity = 10
                         });
+                });
+
+            modelBuilder.Entity("Core.PaymentMethod", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PaymentMethods");
                 });
 
             modelBuilder.Entity("Core.Product", b =>
@@ -524,10 +563,6 @@ namespace DataAccess.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("BrandId");
-
-                    b.HasIndex("ProductCategoryId");
 
                     b.ToTable("Products");
 
@@ -622,6 +657,9 @@ namespace DataAccess.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
                     b.Property<string>("UpdatedBy")
                         .HasColumnType("nvarchar(max)");
 
@@ -638,42 +676,48 @@ namespace DataAccess.Migrations
                             Id = 1,
                             Description = "Mo ta cate 1",
                             Icon = "../../iicon1",
-                            Name = "Name cate 1"
+                            Name = "Name cate 1",
+                            Quantity = 0
                         },
                         new
                         {
                             Id = 2,
                             Description = "Mo ta cate 2",
                             Icon = "../../iicon1",
-                            Name = "Name cate 2"
+                            Name = "Name cate 2",
+                            Quantity = 0
                         },
                         new
                         {
                             Id = 3,
                             Description = "Mo ta cate 3",
                             Icon = "../../iicon1",
-                            Name = "Name cate 3"
+                            Name = "Name cate 3",
+                            Quantity = 0
                         },
                         new
                         {
                             Id = 4,
                             Description = "Mo ta cate 4",
                             Icon = "../../iicon1",
-                            Name = "Name cate 4"
+                            Name = "Name cate 4",
+                            Quantity = 0
                         },
                         new
                         {
                             Id = 5,
                             Description = "Mo ta cate 5",
                             Icon = "../../iicon1",
-                            Name = "Name cate 5"
+                            Name = "Name cate 5",
+                            Quantity = 0
                         },
                         new
                         {
                             Id = 6,
                             Description = "Mo ta cate 6",
                             Icon = "../../iicon1",
-                            Name = "Name cate 6"
+                            Name = "Name cate 6",
+                            Quantity = 0
                         });
                 });
 
@@ -692,13 +736,9 @@ namespace DataAccess.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("ShopCarts");
                 });
@@ -972,72 +1012,6 @@ namespace DataAccess.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Core.Order", b =>
-                {
-                    b.HasOne("Core.OrderAddress", "Address")
-                        .WithMany("Orders")
-                        .HasForeignKey("AddressId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Address");
-                });
-
-            modelBuilder.Entity("Core.OrderDetail", b =>
-                {
-                    b.HasOne("Core.Order", "Order")
-                        .WithMany("OrderDetails")
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Core.Product", "Product")
-                        .WithMany("OrderDetails")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Order");
-
-                    b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("Core.Product", b =>
-                {
-                    b.HasOne("Core.Brand", "Brand")
-                        .WithMany("Products")
-                        .HasForeignKey("BrandId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Core.ProductCategory", "ProductCategory")
-                        .WithMany("Products")
-                        .HasForeignKey("ProductCategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Brand");
-
-                    b.Navigation("ProductCategory");
-                });
-
-            modelBuilder.Entity("Core.ShopCart", b =>
-                {
-                    b.HasOne("Core.Product", "Product")
-                        .WithMany("ShopCarts")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Core.User", "User")
-                        .WithMany("ShopCarts")
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("Product");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -1087,38 +1061,6 @@ namespace DataAccess.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("Core.Brand", b =>
-                {
-                    b.Navigation("Products");
-                });
-
-            modelBuilder.Entity("Core.Order", b =>
-                {
-                    b.Navigation("OrderDetails");
-                });
-
-            modelBuilder.Entity("Core.OrderAddress", b =>
-                {
-                    b.Navigation("Orders");
-                });
-
-            modelBuilder.Entity("Core.Product", b =>
-                {
-                    b.Navigation("OrderDetails");
-
-                    b.Navigation("ShopCarts");
-                });
-
-            modelBuilder.Entity("Core.ProductCategory", b =>
-                {
-                    b.Navigation("Products");
-                });
-
-            modelBuilder.Entity("Core.User", b =>
-                {
-                    b.Navigation("ShopCarts");
                 });
 #pragma warning restore 612, 618
         }

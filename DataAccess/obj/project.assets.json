@@ -3278,11 +3278,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaShop\\BeaPetAPI\\DataAccess\\DataAccess.csproj",
+      "projectUniqueName": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop\\BeaPetAPI\\DataAccess\\DataAccess.csproj",
       "projectName": "DataAccess",
-      "projectPath": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaShop\\BeaPetAPI\\DataAccess\\DataAccess.csproj",
+      "projectPath": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop\\BeaPetAPI\\DataAccess\\DataAccess.csproj",
       "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-      "outputPath": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaShop\\BeaPetAPI\\DataAccess\\obj\\",
+      "outputPath": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop\\BeaPetAPI\\DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -3299,8 +3299,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\DAI_HOC\\DoAnTotNghiep\\BeaShop\\BeaPetAPI\\Core\\Core.csproj": {
-              "projectPath": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaShop\\BeaPetAPI\\Core\\Core.csproj"
+            "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop\\BeaPetAPI\\Core\\Core.csproj": {
+              "projectPath": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop\\BeaPetAPI\\Core\\Core.csproj"
             }
           }
         }

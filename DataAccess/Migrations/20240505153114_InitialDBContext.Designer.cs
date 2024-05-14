@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240408143517_InitialDbContext")]
-    partial class InitialDbContext
+    [Migration("20240505153114_InitialDBContext")]
+    partial class InitialDBContext
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -57,6 +57,43 @@ namespace DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Brands");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Description brand 1",
+                            Image = ".//./brand1",
+                            Name = "Brand 1"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "Description brand 1",
+                            Image = ".//./brand1",
+                            Name = "Brand 2"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Description = "Description brand 1",
+                            Image = ".//./brand1",
+                            Name = "Brand 3"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Description = "Description brand 1",
+                            Image = ".//./brand1",
+                            Name = "Brand 4"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Description = "Description brand 1",
+                            Image = ".//./brand1",
+                            Name = "Brand 5"
+                        });
                 });
 
             modelBuilder.Entity("Core.Menu", b =>
@@ -91,6 +128,50 @@ namespace DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Menus");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Description Menu 1",
+                            Name = "Menu 1",
+                            Position = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "Description Menu 2",
+                            Name = "Menu 2",
+                            Position = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Description = "Description Menu 3",
+                            Name = "Menu 3",
+                            Position = 3
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Description = "Description Menu 4",
+                            Name = "Menu 4",
+                            Position = 4
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Description = "Description Menu 5",
+                            Name = "Menu 5",
+                            Position = 5
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Description = "Description Menu 6",
+                            Name = "Menu 6",
+                            Position = 6
+                        });
                 });
 
             modelBuilder.Entity("Core.New", b =>
@@ -128,6 +209,56 @@ namespace DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("News");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Description Title 1",
+                            Detail = "Detail New 1",
+                            Image = ".//./brand1",
+                            Title = "Title 1"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "Description Title 2",
+                            Detail = "Detail New 2",
+                            Image = ".//./brand1",
+                            Title = "Title 2"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Description = "Description Title 3",
+                            Detail = "Detail New 3",
+                            Image = ".//./brand1",
+                            Title = "Title 3"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Description = "Description Title 4",
+                            Detail = "Detail New 4",
+                            Image = ".//./brand1",
+                            Title = "Title 4"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Description = "Description Title 5",
+                            Detail = "Detail New 5",
+                            Image = ".//./brand1",
+                            Title = "Title 5"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Description = "Description Title 6",
+                            Detail = "Detail New 6x",
+                            Image = ".//./brand1",
+                            Title = "Title 6"
+                        });
                 });
 
             modelBuilder.Entity("Core.Order", b =>
@@ -138,7 +269,7 @@ namespace DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AddressId")
+                    b.Property<int?>("AddressId")
                         .HasColumnType("int");
 
                     b.Property<int>("Code")
@@ -150,8 +281,14 @@ namespace DataAccess.Migrations
                     b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("PaymentMethodId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("TotalAmount")
                         .HasColumnType("float");
@@ -162,11 +299,54 @@ namespace DataAccess.Migrations
                     b.Property<DateTime?>("UpdatedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("AddressId");
-
                     b.ToTable("Orders");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AddressId = 1,
+                            Code = 1,
+                            Quantity = 30,
+                            TotalAmount = 100.02
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AddressId = 2,
+                            Code = 2,
+                            Quantity = 30,
+                            TotalAmount = 200.02000000000001
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AddressId = 4,
+                            Code = 3,
+                            Quantity = 40,
+                            TotalAmount = 300.01999999999998
+                        },
+                        new
+                        {
+                            Id = 4,
+                            AddressId = 5,
+                            Code = 4,
+                            Quantity = 20,
+                            TotalAmount = 400.01999999999998
+                        },
+                        new
+                        {
+                            Id = 5,
+                            AddressId = 3,
+                            Code = 5,
+                            Quantity = 10,
+                            TotalAmount = 500.01999999999998
+                        });
                 });
 
             modelBuilder.Entity("Core.OrderAddress", b =>
@@ -198,33 +378,144 @@ namespace DataAccess.Migrations
                     b.Property<DateTime?>("UpdatedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("OrderAddresses");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "Ha Nam",
+                            NameCustomer = "Duc Le 1",
+                            Phone = "02882828"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Address = "Ha Nam",
+                            NameCustomer = "Duc Le 2",
+                            Phone = "02882828"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Address = "Ha Nam",
+                            NameCustomer = "Duc Le 3",
+                            Phone = "02882828"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Address = "Ha Nam",
+                            NameCustomer = "Duc Le 4",
+                            Phone = "02882828"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Address = "Ha Nam",
+                            NameCustomer = "Duc Le 5",
+                            Phone = "02882828"
+                        });
                 });
 
             modelBuilder.Entity("Core.OrderDetail", b =>
                 {
-                    b.Property<int>("ProductId")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("OrderId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Id")
                         .HasColumnType("int");
 
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.HasKey("ProductId", "OrderId");
-
-                    b.HasIndex("OrderId");
+                    b.HasKey("Id");
 
                     b.ToTable("OrderDetails");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            OrderId = 1,
+                            Price = 100.0,
+                            ProductId = 1,
+                            Quantity = 10
+                        },
+                        new
+                        {
+                            Id = 2,
+                            OrderId = 2,
+                            Price = 100.0,
+                            ProductId = 2,
+                            Quantity = 10
+                        },
+                        new
+                        {
+                            Id = 3,
+                            OrderId = 1,
+                            Price = 100.0,
+                            ProductId = 3,
+                            Quantity = 10
+                        },
+                        new
+                        {
+                            Id = 4,
+                            OrderId = 2,
+                            Price = 100.0,
+                            ProductId = 4,
+                            Quantity = 10
+                        },
+                        new
+                        {
+                            Id = 5,
+                            OrderId = 1,
+                            Price = 100.0,
+                            ProductId = 5,
+                            Quantity = 10
+                        });
+                });
+
+            modelBuilder.Entity("Core.PaymentMethod", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PaymentMethods");
                 });
 
             modelBuilder.Entity("Core.Product", b =>
@@ -276,11 +567,74 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BrandId");
-
-                    b.HasIndex("ProductCategoryId");
-
                     b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            BrandId = 1,
+                            Description = "An nhieu lam",
+                            Detail = "1m1",
+                            Image = "././.cho1",
+                            Name = "Cho 1",
+                            Price = 100.0,
+                            ProductCategoryId = 1,
+                            Quantity = 10,
+                            SalePrice = 80.0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            BrandId = 2,
+                            Description = "An nhieu lam",
+                            Detail = "1m1",
+                            Image = "././.cho1",
+                            Name = "Cho 1",
+                            Price = 100.0,
+                            ProductCategoryId = 1,
+                            Quantity = 10,
+                            SalePrice = 80.0
+                        },
+                        new
+                        {
+                            Id = 3,
+                            BrandId = 3,
+                            Description = "An nhieu lam",
+                            Detail = "1m1",
+                            Image = "././.cho1",
+                            Name = "Cho 1",
+                            Price = 100.0,
+                            ProductCategoryId = 1,
+                            Quantity = 10,
+                            SalePrice = 80.0
+                        },
+                        new
+                        {
+                            Id = 4,
+                            BrandId = 4,
+                            Description = "An nhieu lam",
+                            Detail = "1m1",
+                            Image = "././.cho1",
+                            Name = "Cho 1",
+                            Price = 100.0,
+                            ProductCategoryId = 1,
+                            Quantity = 10,
+                            SalePrice = 80.0
+                        },
+                        new
+                        {
+                            Id = 5,
+                            BrandId = 5,
+                            Description = "An nhieu lam",
+                            Detail = "1m1",
+                            Image = "././.cho1",
+                            Name = "Cho 1",
+                            Price = 100.0,
+                            ProductCategoryId = 1,
+                            Quantity = 10,
+                            SalePrice = 80.0
+                        });
                 });
 
             modelBuilder.Entity("Core.ProductCategory", b =>
@@ -306,6 +660,9 @@ namespace DataAccess.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
                     b.Property<string>("UpdatedBy")
                         .HasColumnType("nvarchar(max)");
 
@@ -315,6 +672,56 @@ namespace DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ProductCategories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Mo ta cate 1",
+                            Icon = "../../iicon1",
+                            Name = "Name cate 1",
+                            Quantity = 0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "Mo ta cate 2",
+                            Icon = "../../iicon1",
+                            Name = "Name cate 2",
+                            Quantity = 0
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Description = "Mo ta cate 3",
+                            Icon = "../../iicon1",
+                            Name = "Name cate 3",
+                            Quantity = 0
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Description = "Mo ta cate 4",
+                            Icon = "../../iicon1",
+                            Name = "Name cate 4",
+                            Quantity = 0
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Description = "Mo ta cate 5",
+                            Icon = "../../iicon1",
+                            Name = "Name cate 5",
+                            Quantity = 0
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Description = "Mo ta cate 6",
+                            Icon = "../../iicon1",
+                            Name = "Name cate 6",
+                            Quantity = 0
+                        });
                 });
 
             modelBuilder.Entity("Core.ShopCart", b =>
@@ -332,13 +739,9 @@ namespace DataAccess.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("ShopCarts");
                 });
@@ -378,6 +781,40 @@ namespace DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Sliders");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Descrip slider",
+                            Image = "../..//",
+                            Link = "./././",
+                            Title = " Title slider"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "Descrip slider",
+                            Image = "../..//",
+                            Link = "./././",
+                            Title = " Title slider"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Description = "Descrip slider",
+                            Image = "../..//",
+                            Link = "./././",
+                            Title = " Title slider"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Description = "Descrip slider",
+                            Image = "../..//",
+                            Link = "./././",
+                            Title = " Title slider"
+                        });
                 });
 
             modelBuilder.Entity("Core.User", b =>
@@ -578,72 +1015,6 @@ namespace DataAccess.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Core.Order", b =>
-                {
-                    b.HasOne("Core.OrderAddress", "Address")
-                        .WithMany("Orders")
-                        .HasForeignKey("AddressId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Address");
-                });
-
-            modelBuilder.Entity("Core.OrderDetail", b =>
-                {
-                    b.HasOne("Core.Order", "Order")
-                        .WithMany("OrderDetails")
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Core.Product", "Product")
-                        .WithMany("OrderDetails")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Order");
-
-                    b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("Core.Product", b =>
-                {
-                    b.HasOne("Core.Brand", "Brand")
-                        .WithMany("Products")
-                        .HasForeignKey("BrandId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Core.ProductCategory", "ProductCategory")
-                        .WithMany("Products")
-                        .HasForeignKey("ProductCategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Brand");
-
-                    b.Navigation("ProductCategory");
-                });
-
-            modelBuilder.Entity("Core.ShopCart", b =>
-                {
-                    b.HasOne("Core.Product", "Product")
-                        .WithMany("ShopCarts")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Core.User", "User")
-                        .WithMany("ShopCarts")
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("Product");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -693,38 +1064,6 @@ namespace DataAccess.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("Core.Brand", b =>
-                {
-                    b.Navigation("Products");
-                });
-
-            modelBuilder.Entity("Core.Order", b =>
-                {
-                    b.Navigation("OrderDetails");
-                });
-
-            modelBuilder.Entity("Core.OrderAddress", b =>
-                {
-                    b.Navigation("Orders");
-                });
-
-            modelBuilder.Entity("Core.Product", b =>
-                {
-                    b.Navigation("OrderDetails");
-
-                    b.Navigation("ShopCarts");
-                });
-
-            modelBuilder.Entity("Core.ProductCategory", b =>
-                {
-                    b.Navigation("Products");
-                });
-
-            modelBuilder.Entity("Core.User", b =>
-                {
-                    b.Navigation("ShopCarts");
                 });
 #pragma warning restore 612, 618
         }

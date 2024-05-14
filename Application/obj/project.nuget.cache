@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "R/0FSkrcCZ9sTLHPIPVETttQ4Vud0PnERDD4lJ53RMELRL4bO9rnmrH47NHzzB64jhU5kKxJ4bSSCh8D0oKUPQ==",
+  "dgSpecHash": "v/QEJC+yi97G3bo9kE5o2nYkzgH/PiUHzCZCGQ+sr+wTEw0GRYwuygMGnd6cHKPnAxTBYLQlJL9VnnArV8+jow==",
   "success": true,
-  "projectFilePath": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaShop\\BeaPetAPI\\Application\\Application.csproj",
+  "projectFilePath": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop\\BeaPetAPI\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\admin\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

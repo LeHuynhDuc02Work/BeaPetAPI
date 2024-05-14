@@ -7,7 +7,8 @@ namespace Core
         public string? Name { get; set; }
         public string? Description { get; set; }
         public string? Icon { get; set; }
-        public ICollection<Product>? Products { get; set; }
+        public int Quantity { get; set; }
+        //public ICollection<Product>? Products { get; set; }
         public string? CreatedBy { get; set; }
         public DateTime? CreatedOn { get; set; }
         public string? UpdatedBy { get; set; }

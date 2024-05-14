@@ -8,6 +8,12 @@ namespace Application.Dtos
         public int ProductId { get; set; }
         public int Quantity { get; set; }
     }
+
+    public class ShopCartUpdateDto
+    {
+        public int Quantity { get; set; }
+    }
+
     public class ShopCartViewDto
     {
         public int Id { get; set; }

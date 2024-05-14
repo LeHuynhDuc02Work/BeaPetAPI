@@ -5,6 +5,7 @@ namespace Application.Contracts
     public interface IBrandService
     {
         Task<List<BrandViewDto>> GetAll(InputSearchDto inputSearch);
+        Task<List<ProductViewDto>> GetProductsByBrandId(int id, InputSearchDto inputSearch);
         Task<BrandViewDto> GetById(int id);
         Task<BrandViewDto> Create(BrandDto brandCreate);
         Task<BrandViewDto> Update(int id, BrandDto brandUpdate);

@@ -5,8 +5,8 @@ namespace Application.Contracts
 {
     public interface IUserService
     {
-        public Task<IdentityResult> RegisterAsync(UserRegisterDto model);
+        public Task<UserViewDto> RegisterAsync(UserRegisterDto model);
 
-        public Task<string> LoginAsync(UserLoginDto model);
+        public Task<UserLoginViewDto> LoginAsync(UserLoginDto model);
     }
 }

@@ -10,6 +10,8 @@ namespace Application.MappingProfiles
         {
             CreateMap<Product, ProductDto>().ReverseMap();
             CreateMap<Product, ProductViewDto>().ReverseMap();
+            CreateMap<Product, ProductShopCartDto>().ReverseMap();
+            CreateMap<Product, ProductOrderDetailDto>().ReverseMap();
         }
     }
 }

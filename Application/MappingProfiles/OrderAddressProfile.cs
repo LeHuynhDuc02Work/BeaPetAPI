@@ -10,6 +10,7 @@ namespace Application.MappingProfiles
         {
             CreateMap<OrderAddress, OrderAddressDto>().ReverseMap();
             CreateMap<OrderAddress, OrderAddressViewDto>().ReverseMap();
+            CreateMap<OrderAddress, OrderAddressCreateDto>().ReverseMap();
         }
     }
 }

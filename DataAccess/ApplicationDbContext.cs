@@ -24,58 +24,60 @@ namespace DataAccess
         public DbSet<ProductCategory> ProductCategories { get; set; }
         public DbSet<ShopCart> ShopCarts { get; set; }
         public DbSet<Slider> Sliders { get; set; }
+        public DbSet<PaymentMethod> PaymentMethods { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //OrderDetail, Order, Product
-            modelBuilder.Entity<OrderDetail>()
-                .HasKey(pfk => new { pfk.ProductId, pfk.OrderId});
+            //modelBuilder.Entity<OrderDetail>()
+            //    .HasKey(pfk => new { pfk.ProductId, pfk.OrderId});
 
-            modelBuilder.Entity<Product>()
-                .HasMany(b => b.OrderDetails)
-                .WithOne(p => p.Product)
-                .HasForeignKey(fk => fk.ProductId);
+            //modelBuilder.Entity<Product>()
+            //    .HasMany(b => b.OrderDetails)
+            //    .WithOne(p => p.Product)
+            //    .HasForeignKey(fk => fk.ProductId);
 
-            modelBuilder.Entity<Order>()
-                .HasMany(b => b.OrderDetails)
-                .WithOne(p => p.Order)
-                .HasForeignKey(fk => fk.OrderId);
+            //modelBuilder.Entity<Order>()
+            //    .HasMany(b => b.OrderDetails)
+            //    .WithOne(p => p.Order)
+            //    .HasForeignKey(fk => fk.OrderId);
 
             //Product, Brand
-            modelBuilder.Entity<Brand>()
-                .HasMany(b => b.Products)
-                .WithOne(p => p.Brand)
-                .HasForeignKey(fk => fk.BrandId);
+            //modelBuilder.Entity<Brand>()
+            //    .HasMany(b => b.Products)
+            //    .WithOne(p => p.Brand)
+            //    .HasForeignKey(fk => fk.BrandId);
 
-            //Product, ProductCategory
-            modelBuilder.Entity<ProductCategory>()
-                .HasMany(b => b.Products)
-                .WithOne(p => p.ProductCategory)
-                .HasForeignKey(fk => fk.ProductCategoryId);
+            ////Product, ProductCategory
+            //modelBuilder.Entity<ProductCategory>()
+            //    .HasMany(b => b.Products)
+            //    .WithOne(p => p.ProductCategory)
+            //    .HasForeignKey(fk => fk.ProductCategoryId);
 
-            //ShopCart, Product
-            modelBuilder.Entity<Product>()
-                 .HasMany(b => b.ShopCarts)
-                 .WithOne(p => p.Product)
-                 .HasForeignKey(fk => fk.ProductId);
+            ////ShopCart, Product
+            //modelBuilder.Entity<Product>()
+            //     .HasMany(b => b.ShopCarts)
+            //     .WithOne(p => p.Product)
+            //     .HasForeignKey(fk => fk.ProductId);
 
-            //ShopCart, User
+            ////ShopCart, User
+            ////modelBuilder.Entity<User>()
+            ////    .HasNoKey();
+
             //modelBuilder.Entity<User>()
-            //    .HasNoKey();
+            //     .HasMany(b => b.ShopCarts)
+            //     .WithOne(p => p.User)
+            //     .HasForeignKey(fk => fk.UserId);
 
-            modelBuilder.Entity<User>()
-                 .HasMany(b => b.ShopCarts)
-                 .WithOne(p => p.User)
-                 .HasForeignKey(fk => fk.UserId);
-
-            //Oder, OrderAddress
-            modelBuilder.Entity<OrderAddress>()
-                 .HasMany(b => b.Orders)
-                 .WithOne(p => p.Address)
-                 .HasForeignKey(fk => fk.AddressId);
+            ////Oder, OrderAddress
+            //modelBuilder.Entity<OrderAddress>()
+            //     .HasMany(b => b.Orders)
+            //     .WithOne(p => p.Address)
+            //     .HasForeignKey(fk => fk.AddressId);
 
             new DbInitializer(modelBuilder).Seed();
             base.OnModelCreating(modelBuilder);
+
         }
 
         public class DbInitializer

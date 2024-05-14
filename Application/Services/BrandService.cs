@@ -19,12 +19,31 @@ namespace Application.Services
 
         public async Task<List<BrandViewDto>> GetAll(InputSearchDto inputSearch)
         {
-            var brands = _unitOfWork.BrandRepository.GetAll().OrderByDescending(x => x.Id);
-
+            var brands = _unitOfWork.BrandRepository.GetAll()
+                            .Where(x => x.Name.Contains(inputSearch.search.Trim()))
+                            .OrderByDescending(x => x.Id);
+                
             var pagination = new PaginationHelper<Brand>();
             var brandsPagination = pagination.Paginate(brands, inputSearch.page, inputSearch.pageSize);
             var brandsMap = _mapper.Map<List<BrandViewDto>>(brandsPagination);
             return brandsMap;
+        }
+
+        public async Task<List<ProductViewDto>> GetProductsByBrandId(int id, InputSearchDto inputSearch)
+        {
+            var products = _unitOfWork.ProductRepository.GetAll().Where(x => x.BrandId == id).OrderByDescending(x => x.Id);
+            if (inputSearch.sort == "DESC")
+            {
+                products = products.OrderByDescending(x => x.SalePrice);
+            }
+            if (inputSearch.sort == "ASC")
+            {
+                products = products.OrderBy(x => x.SalePrice);
+            }
+            var pagination = new PaginationHelper<Product>();
+            var productsPagination = pagination.Paginate(products, inputSearch.page, inputSearch.pageSize);
+            var productsMap = _mapper.Map<List<ProductViewDto>>(productsPagination);
+            return productsMap;
         }
 
         public async Task<BrandViewDto> GetById(int id)

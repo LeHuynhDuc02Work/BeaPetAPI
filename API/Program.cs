@@ -29,12 +29,21 @@ builder.Services.AddScoped<IProductCategoryRepository, ProductCategoryRepository
 builder.Services.AddScoped<IShopCartRepository, ShopCartRepository>();
 builder.Services.AddScoped<ISliderRepository, SliderRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
-    //UnitOfWork
+builder.Services.AddScoped<IPaymentMethodRepository, PaymentMethodRepository>();
+//UnitOfWork
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
     //Service
 builder.Services.AddScoped<IBrandService, BrandService>();
 builder.Services.AddScoped<IMenuService, MenuService>();
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IProductCategoryService, ProductCategoryService>();
+builder.Services.AddScoped<INewService, NewService>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IOrderAddressService, OrderAddressService>();
+builder.Services.AddScoped<IShopCartService, ShopCartService>();
+builder.Services.AddScoped<IPaymentMethodService, PaymentMethodService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<IOrderDetailService, OrderDetailService>();
 
 //
 // Add dependency injection
@@ -46,9 +55,14 @@ builder.Services.AddIdentity<User, IdentityRole>()
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString, opt => opt.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
 builder.Services.AddControllers();
+//Cors
+builder.Services.AddCors(p => p.AddPolicy("MyCors", build =>
+{
+    //build.WithOrigins("https://ababab", "https://localhost:3000");
+    build.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+}));
 // Add ExceptionHandle
 
-builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 //builder.Services.AddSwaggerGen();
@@ -109,7 +123,14 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseDefaultFiles();
+
+app.UseStaticFiles();
+
+app.UseCors("MyCors");
+
 app.UseAuthentication();
+
 app.UseAuthorization();
 
 app.MapControllers();
