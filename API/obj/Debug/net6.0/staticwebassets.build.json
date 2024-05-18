@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "6opwi50S57bE1nPAXRykiiXZ5iSVK/ixAs4Iq2Wp0HU=",
+  "Hash": "vsmBGuP+FlDFRzIaLDmcC/q8QxdaABIpxB52tFS4Ens=",
   "Source": "API",
   "BasePath": "_content/API",
   "Mode": "Default",
@@ -134,6 +134,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\brand7.jpg"
+    },
+    {
+      "Identity": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop\\BeaPetAPI\\API\\wwwroot\\images\\brand8.jpg",
+      "SourceId": "API",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop\\BeaPetAPI\\API\\wwwroot\\",
+      "BasePath": "_content/API",
+      "RelativePath": "images/brand8.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\brand8.jpg"
     },
     {
       "Identity": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop\\BeaPetAPI\\API\\wwwroot\\images\\product1.jpg",
@@ -474,6 +491,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\product9.jpg"
+    },
+    {
+      "Identity": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop\\BeaPetAPI\\API\\wwwroot\\images\\Screenshot 2024-03-29 162438.png",
+      "SourceId": "API",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop\\BeaPetAPI\\API\\wwwroot\\",
+      "BasePath": "_content/API",
+      "RelativePath": "images/Screenshot 2024-03-29 162438.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Screenshot 2024-03-29 162438.png"
     }
   ]
 }

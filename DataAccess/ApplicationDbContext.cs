@@ -25,6 +25,7 @@ namespace DataAccess
         public DbSet<ShopCart> ShopCarts { get; set; }
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<PaymentMethod> PaymentMethods { get; set; }
+        public DbSet<Review> Reviews { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

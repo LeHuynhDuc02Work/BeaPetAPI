@@ -5,6 +5,7 @@ namespace Core
 {
     public class User : IdentityUser
     {
+
         //public ICollection<ShopCart>? ShopCarts { get; set; }
     }
 }

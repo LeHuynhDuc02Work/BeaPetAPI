@@ -3,6 +3,8 @@ using Application.Dtos;
 using Application.Helpers;
 using AutoMapper;
 using Core;
+using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Application.Services
 {
@@ -24,6 +26,80 @@ namespace Application.Services
 
             var orderDetailsMap = _mapper.Map<List<OrderDetailViewDto>>(orderDetails);
             return orderDetailsMap;
+        }
+
+        public async Task<List<ProductAnalysDto>> GetAllProductToAnalys(InputSearchDto inputSearch)
+        {
+            
+            if (inputSearch.search.Trim() == "Sản phẩm bán chậm(10)")
+            {
+                var allProducts = _unitOfWork.ProductRepository.GetAll();
+                var orderItems = _unitOfWork.OrderDetailRepository.GetAll();
+
+                List<ProductAnalysDto> productAnalyses = new List<ProductAnalysDto>();
+                foreach (var item in allProducts)
+                {
+                    if (orderItems.FirstOrDefault(x => x.ProductId == item.Id) == null)
+                    {
+                        var productTg = new ProductAnalysDto();
+                        productTg.Id = item.Id;
+                        productTg.SalePrice = item.SalePrice;
+                        productTg.Image = item.Image;
+                        productTg.Quantity = item.Quantity;
+                        productTg.Name = item.Name;
+                        productTg.SellQuantity = 0;
+                        productAnalyses.Add(productTg);
+                    }
+                    if (productAnalyses.Count == 10) break;
+                }
+                if (productAnalyses.Count < 10)
+                {
+                    var orderDetails = _unitOfWork.OrderDetailRepository.GetAll();
+                    var products = orderDetails.GroupBy(o => o.ProductId)
+                                            .ToDictionary(g => g.Key, g => g.Count())
+                                            .OrderBy(x => x.Value);
+                    int index = productAnalyses.Count;
+                 
+                    foreach (var item in products)
+                    {
+                        Product product = await _unitOfWork.ProductRepository.GetProductById(item.Key);
+                        ProductAnalysDto productAnalys = new ProductAnalysDto();
+                        productAnalys.Id = product.Id;
+                        productAnalys.Name = product.Name;
+                        productAnalys.Image = product.Image;
+                        productAnalys.SalePrice = product.SalePrice;
+                        productAnalys.Quantity = product.Quantity;
+                        productAnalys.SellQuantity = item.Value;
+                        productAnalyses.Add(productAnalys);
+                        index++;
+                        if (index == 10) break;
+                    }
+                }   
+                return productAnalyses;
+            }
+            else
+            {
+                var orderDetails = _unitOfWork.OrderDetailRepository.GetAll();
+                var products = orderDetails.GroupBy(o => o.ProductId)
+                                        .ToDictionary(g => g.Key, g => g.Count())
+                                        .OrderByDescending(x => x.Value);
+                List<ProductAnalysDto> productAnalyses = new List<ProductAnalysDto>();
+                foreach (var item in products)
+                {
+                    Product product = await _unitOfWork.ProductRepository.GetProductById(item.Key);
+                    ProductAnalysDto productAnalys = new ProductAnalysDto();
+                    productAnalys.Id = product.Id;
+                    productAnalys.Name = product.Name;
+                    productAnalys.Image = product.Image;
+                    productAnalys.SalePrice = product.SalePrice;
+                    productAnalys.Quantity = product.Quantity;
+                    productAnalys.SellQuantity = item.Value;
+                    productAnalyses.Add(productAnalys);
+                }
+                var pagination = new PaginationHelper<ProductAnalysDto>();
+                var productAnalysesPagination = pagination.Paginate(productAnalyses, inputSearch.page, inputSearch.pageSize);
+                return _mapper.Map<List<ProductAnalysDto>>(productAnalysesPagination);
+            }    
         }
 
         public async Task<OrderDetailViewDto> Create(OrderDetailDto orderDetailCreate)
@@ -61,5 +137,6 @@ namespace Application.Services
         {
             throw new NotImplementedException();
         }
+
     }
 }

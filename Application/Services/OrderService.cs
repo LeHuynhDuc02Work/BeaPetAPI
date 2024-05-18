@@ -23,11 +23,21 @@ namespace Application.Services
 
         public async Task<List<OrderViewDto>> GetAll(InputSearchDto inputSearch)
         {
-            var orders = _unitOfWork.OrderRepository.GetAll().OrderByDescending(x => x.Id);
-
+            var orders = _unitOfWork.OrderRepository.GetAll().OrderByDescending(x => x.Id); ;
+            if (inputSearch.search != "Tất cả")
+            {
+                orders = _unitOfWork.OrderRepository.GetAll()
+                                .Where(x => x.Status.Trim() == inputSearch.search.Trim())
+                                .OrderByDescending(x => x.Id);
+            } 
             var pagination = new PaginationHelper<Order>();
             var ordersPagination = pagination.Paginate(orders, inputSearch.page, inputSearch.pageSize);
             var ordersMap = _mapper.Map<List<OrderViewDto>>(ordersPagination);
+            foreach (var order in ordersMap)
+            {
+                var address = await _unitOfWork.OrderAddressRepository.GetOrderAddressById(order.AddressId);
+                order.Address = _mapper.Map<OrderAddressDto>(address);
+            }    
             return ordersMap;
         }
 
@@ -110,9 +120,34 @@ namespace Application.Services
             _order.Status = orderUpdate.Status;
             _order.UpdatedOn = DateTime.Now;
             _unitOfWork.OrderRepository.Update(_order);
-            await _unitOfWork.OrderRepository.SaveChange();
 
+            await _unitOfWork.OrderRepository.SaveChange();
             return _mapper.Map<OrderViewDto>(_order);
+        }
+        public async Task<List<OrderStatisticalDto>> GetOrderStatiscal(string Status)
+        {
+            var orders = _unitOfWork.OrderRepository.GetAll()
+                .Where(x => x.Status.Trim() == Status.Trim())
+                .OrderByDescending(x => x.CreatedOn);
+
+            var totalAmountByMonth = orders.GroupBy(o => new Tuple<int, int>(o.CreatedOn.Month, o.CreatedOn.Year))
+                               .ToDictionary(g => g.Key, g => g.Sum(o => o.TotalAmount));
+            var totalOrdersByMonth = orders.GroupBy(o => new Tuple<int, int>(o.CreatedOn.Month, o.CreatedOn.Year))
+                               .ToDictionary(g => g.Key, g => g.Count());
+            List<OrderStatisticalDto> orderStatisticals = new List<OrderStatisticalDto>();
+            int i = 0;
+            foreach(var result in totalAmountByMonth)
+            {
+                OrderStatisticalDto order = new OrderStatisticalDto()
+                {
+                    Month = result.Key.Item1.ToString() + "/" + result.Key.Item2.ToString(),
+                    SellPrice = result.Value,
+                    TotalOrder = totalOrdersByMonth[result.Key]
+                };
+                orderStatisticals.Add(order);
+            }    
+ 
+            return orderStatisticals;
         }
 
         public Task<bool> Delete(int id)

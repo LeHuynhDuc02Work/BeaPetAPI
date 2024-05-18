@@ -39,6 +39,16 @@
 
     }
 
+    public class ProductAnalysDto
+    {
+        public int Id { get; set; }
+        public string? Name { get; set; }
+        public string? Image { get; set; }
+        public double? SalePrice { get; set; }
+        public int? SellQuantity { get; set; }
+        public int? Quantity { get; set; }
+    }
+
     public class ProductViewDto
     {
         public int Id { get; set; }

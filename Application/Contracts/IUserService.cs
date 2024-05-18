@@ -8,5 +8,7 @@ namespace Application.Contracts
         public Task<UserViewDto> RegisterAsync(UserRegisterDto model);
 
         public Task<UserLoginViewDto> LoginAsync(UserLoginDto model);
+
+        public Task<List<UserLoginViewDto>> GetAll(InputSearchDto inputSearch);
     }
 }

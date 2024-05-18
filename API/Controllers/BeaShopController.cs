@@ -159,6 +159,12 @@ namespace API.Controllers
             return Ok(await _orderAddressService.GetById(id));
         }
 
+        [HttpGet("addressv/{id}")]
+        public async Task<IActionResult> GetAddressByIdV(int id)
+        {
+            return Ok(await _orderAddressService.GetByIdV(id));
+        }
+
         [HttpPost("address/create")]
         public async Task<IActionResult> CreateAddress([FromBody] OrderAddressCreateDto orderAddressCreate)
         {
@@ -183,6 +189,12 @@ namespace API.Controllers
             return Ok(await _orderDetailService.GetAllByOrderId(id));
         }
 
+        [HttpGet("products-analys")]
+        public async Task<IActionResult> GetAllProductToAnalys([FromQuery]InputSearchDto inputSearch)
+        {
+            return Ok(await _orderDetailService.GetAllProductToAnalys(inputSearch));
+        }
+
         [HttpPost("order-detail/create")]
         public async Task<IActionResult> CreateOrderDetail([FromBody] OrderDetailDto orderDetailCreate)
         {
@@ -193,6 +205,12 @@ namespace API.Controllers
         public async Task<IActionResult> GetAllOrder([FromQuery] InputSearchDto inputSearch)
         {
             return Ok(await _orderService.GetAll(inputSearch));
+        }
+
+        [HttpGet("order-statiscal")]
+        public async Task<IActionResult> GetOrderStatiscal(string status)
+        {
+            return Ok(await _orderService.GetOrderStatiscal(status));
         }
 
         [HttpGet("order-detai/products/order/{id}")]
@@ -381,6 +399,12 @@ namespace API.Controllers
         public async Task<IActionResult> SignUp([FromBody] UserRegisterDto model)
         {
             return Ok(await _userService.RegisterAsync(model));
+        }
+
+        [HttpGet("users")]
+        public async Task<IActionResult> GetAll([FromQuery] InputSearchDto inputSearchDto)
+        {
+            return Ok(await _userService.GetAll(inputSearchDto));
         }
     }
 }

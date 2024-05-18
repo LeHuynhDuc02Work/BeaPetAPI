@@ -36,6 +36,18 @@ namespace Application.Services
             _context = context;
             _mapper = mapper;
         }
+
+        public async Task<List<UserLoginViewDto>> GetAll(InputSearchDto inputSearch)
+        {
+            var users = _context.Users.ToList();
+            if (inputSearch != null)
+            {
+                users = users.Where(x => x.UserName.ToLower().Contains(inputSearch.search.Trim().ToLower())).ToList();
+            }
+            var userMap = _mapper.Map<List<UserLoginViewDto>>(users);
+            return userMap.Where(x=>x.Email.Trim() != "ducle1701work@gmail.com").ToList();
+        }
+
         public async Task<UserLoginViewDto> LoginAsync(UserLoginDto model)
         {
             var user = _context.Users.Where(x => x.Email.Trim() == model.Email.Trim()).FirstOrDefault();
