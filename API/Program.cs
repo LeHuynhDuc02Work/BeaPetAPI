@@ -30,6 +30,7 @@ builder.Services.AddScoped<IShopCartRepository, ShopCartRepository>();
 builder.Services.AddScoped<ISliderRepository, SliderRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IPaymentMethodRepository, PaymentMethodRepository>();
+builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
 //UnitOfWork
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
     //Service
@@ -44,6 +45,7 @@ builder.Services.AddScoped<IShopCartService, ShopCartService>();
 builder.Services.AddScoped<IPaymentMethodService, PaymentMethodService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<IOrderDetailService, OrderDetailService>();
+builder.Services.AddScoped<IReviewService, ReviewService>();
 
 //
 // Add dependency injection

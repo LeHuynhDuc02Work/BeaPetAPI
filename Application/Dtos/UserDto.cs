@@ -44,6 +44,7 @@ namespace Application.Dtos
         public string Token { get; set; } = null!;
 
         public string Position { get; set; } = null!;
+        public string Status { get; set; } = null!;
 
     }
 

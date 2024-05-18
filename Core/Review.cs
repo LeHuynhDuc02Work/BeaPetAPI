@@ -4,6 +4,8 @@ namespace Core
 {
     public class Review : BaseEntity, IBaseEntity
     {
+        public int ProductId { get; set; }
+        public string UserId { get; set; }
         public string? Content { get; set; }
         public int Like { get; set; }
         public int Dislike { get; set; }

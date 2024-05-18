@@ -86,7 +86,8 @@ namespace Application.Services
                 UserName = user?.UserName,
                 Email = user?.Email,
                 Token = new JwtSecurityTokenHandler().WriteToken(token),
-                Position = (user?.Email.Trim() == "ducle1701work@gmail.com") ? "admin" : "customer"
+                Position = (user?.Email.Trim() == "ducle1701work@gmail.com") ? "admin" : "customer",
+                Status = user?.Status
                 }; 
         }
 
@@ -130,6 +131,19 @@ namespace Application.Services
             var _user = _mapper.Map<UserViewDto>(user);
             _user.Status = "Đăng ký thành công!";
             return _user;
+        }
+
+        public async Task<bool> LockUser(string id)
+        {
+            var user = _context.Users.FirstOrDefault(x => x.Id.Trim() == id.Trim());
+            if (user == null)
+                throw new Exception("Not Found");
+            if (user.Status.Trim() == "Đã khóa")
+                user.Status = "Đang hoạt động";
+            else
+                user.Status = "Đã khóa";
+            var result = await _userManager.UpdateAsync(user);
+            return result.Succeeded;
         }
     }
 }

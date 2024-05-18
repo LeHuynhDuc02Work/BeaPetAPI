@@ -16,6 +16,7 @@ namespace Application
         ISliderRepository SliderRepository { get; }
         IProductCategoryRepository ProductCategoryRepository { get; }
         IPaymentMethodRepository PaymentMethodRepository { get; }
+        IReviewRepository ReviewRepository { get; }
 
     }
 }

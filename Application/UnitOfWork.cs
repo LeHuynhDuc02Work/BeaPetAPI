@@ -25,6 +25,7 @@ namespace Application
         private ISliderRepository _sliderRepository;
         private IUserRepository _userRepository;
         private IPaymentMethodRepository _paymentMethodRepository;
+        private IReviewRepository _reviewRepository;
 
         public UnitOfWork(ApplicationDbContext context)
         {
@@ -53,5 +54,6 @@ namespace Application
         public IProductCategoryRepository ProductCategoryRepository => _productCategoryRepository ??= new ProductCategoryRepository(_context);
        
         public IPaymentMethodRepository PaymentMethodRepository => _paymentMethodRepository ??= new PaymentMethodRepository(_context);
+        public IReviewRepository ReviewRepository => _reviewRepository ??= new ReviewRepository(_context);
     }
 }

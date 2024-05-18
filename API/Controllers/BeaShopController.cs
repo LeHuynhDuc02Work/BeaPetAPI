@@ -20,6 +20,7 @@ namespace API.Controllers
         private readonly IPaymentMethodService _paymentMethodService;
         private readonly IOrderService _orderService;
         private readonly IOrderDetailService _orderDetailService;
+        private readonly IReviewService _reviewService;
 
         public BeaShopController(
             IBrandService brandService,
@@ -32,7 +33,8 @@ namespace API.Controllers
             IShopCartService shopCartService,
             IPaymentMethodService paymentMethodService,
             IOrderService orderService,
-            IOrderDetailService orderDetailService
+            IOrderDetailService orderDetailService,
+            IReviewService reviewService
             )
         {
             _brandService = brandService;
@@ -46,6 +48,7 @@ namespace API.Controllers
             _paymentMethodService = paymentMethodService;
             _orderService = orderService;
             _orderDetailService = orderDetailService;
+            _reviewService = reviewService;
         }
 
         //Brand API
@@ -386,7 +389,17 @@ namespace API.Controllers
             }
             return Ok("Co loi xay ra");
         }
-
+        //Review API
+        [HttpGet("reviews/product/{id}")]
+        public async Task<IActionResult> SignIn(int id)
+        {
+            return Ok(await _reviewService.GetAllByProductId(id));
+        }
+        [HttpPost("review/create")]
+        public async Task<IActionResult> CreateReview(ReviewDto reviewCreate)
+        {
+            return Ok(await _reviewService.Create(reviewCreate));
+        }
 
         //User API
         [HttpPost("login")]
@@ -405,6 +418,12 @@ namespace API.Controllers
         public async Task<IActionResult> GetAll([FromQuery] InputSearchDto inputSearchDto)
         {
             return Ok(await _userService.GetAll(inputSearchDto));
+        }
+
+        [HttpGet("user/change-status/{id}")]
+        public async Task<IActionResult> GetAll(string id)
+        {
+            return Ok(await _userService.LockUser(id));
         }
     }
 }
