@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "vsmBGuP+FlDFRzIaLDmcC/q8QxdaABIpxB52tFS4Ens=",
+  "Hash": "vk+B5lgDl/Py1roOPJla5GEIgwIkYROCrWJFIvW0ZhQ=",
   "Source": "API",
   "BasePath": "_content/API",
   "Mode": "Default",
@@ -170,12 +170,12 @@
       "OriginalItemSpec": "wwwroot\\images\\product1.jpg"
     },
     {
-      "Identity": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop\\BeaPetAPI\\API\\wwwroot\\images\\product10.jpg",
+      "Identity": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop\\BeaPetAPI\\API\\wwwroot\\images\\product10_1.jpg",
       "SourceId": "API",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop\\BeaPetAPI\\API\\wwwroot\\",
       "BasePath": "_content/API",
-      "RelativePath": "images/product10.jpg",
+      "RelativePath": "images/product10_1.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -184,7 +184,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\product10.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\product10_1.jpg"
     },
     {
       "Identity": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop\\BeaPetAPI\\API\\wwwroot\\images\\product11.png",
@@ -255,12 +255,12 @@
       "OriginalItemSpec": "wwwroot\\images\\product14.png"
     },
     {
-      "Identity": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop\\BeaPetAPI\\API\\wwwroot\\images\\product15.jpg",
+      "Identity": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop\\BeaPetAPI\\API\\wwwroot\\images\\product15_1.jpg",
       "SourceId": "API",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop\\BeaPetAPI\\API\\wwwroot\\",
       "BasePath": "_content/API",
-      "RelativePath": "images/product15.jpg",
+      "RelativePath": "images/product15_1.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -269,7 +269,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\product15.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\product15_1.jpg"
     },
     {
       "Identity": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop\\BeaPetAPI\\API\\wwwroot\\images\\product16.jpg",
@@ -491,23 +491,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\product9.jpg"
-    },
-    {
-      "Identity": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop\\BeaPetAPI\\API\\wwwroot\\images\\Screenshot 2024-03-29 162438.png",
-      "SourceId": "API",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop\\BeaPetAPI\\API\\wwwroot\\",
-      "BasePath": "_content/API",
-      "RelativePath": "images/Screenshot 2024-03-29 162438.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\Screenshot 2024-03-29 162438.png"
     }
   ]
 }

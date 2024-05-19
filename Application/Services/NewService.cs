@@ -19,7 +19,9 @@ namespace Application.Services
 
         public async Task<List<NewViewDto>> GetAll(InputSearchDto inputSearch)
         {
-            var news = _unitOfWork.NewRepository.GetAll().OrderByDescending(x => x.Id);
+            var news = _unitOfWork.NewRepository.GetAll()
+                .Where(x => x.Title.Contains(inputSearch.search.Trim()))
+                .OrderByDescending(x => x.Id);
 
             var pagination = new PaginationHelper<New>();
             var newsPagination = pagination.Paginate(news, inputSearch.page, inputSearch.pageSize);
