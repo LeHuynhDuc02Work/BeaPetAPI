@@ -29,4 +29,5 @@ Quản lý liên hệ:
 API endpoint: /api/contacts
 Các phương thức: GET, POST
 Tương tác với CSDL để lấy và lưu trữ thông tin liên hệ từ khách hàng
+
 Các API được xây dựng dựa trên các nguyên tắc thiết kế RESTful, sử dụng phương thức HTTP phù hợp, định nghĩa rõ ràng các endpoint và cấu trúc dữ liệu JSON. Chúng được bảo mật và xác thực thông qua token JWT.
