@@ -22,6 +22,7 @@ namespace Application.Dtos
     public class OrderStatisticalDto
     {
         public string? Month { get; set; }
+        public int Month1 { get; set; }
         public double SellPrice { get; set; }
         public int TotalOrder { get; set; }
     }

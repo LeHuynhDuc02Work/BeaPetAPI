@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8j4FisQdgSx43C4kEiIlWUSryHjcUKxDybBFVhSg3MqWZphHtKMvPB+sIx8N4ilCYm7COQywnoaa8dNIdUXKGQ==",
+  "dgSpecHash": "grQqEwiKAYb1sQqVSBuijyypmNHSDgWejgz8qLxyR8hss1dghUVEU2cCGkyLraKQEWpw1u4myQk3o4VmVdh2nQ==",
   "success": true,
-  "projectFilePath": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop\\BeaPetAPI\\Core\\Core.csproj",
+  "projectFilePath": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop_MaNguon\\BeaPetAPI\\Core\\Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\7.0.17\\microsoft.aspnetcore.cryptography.internal.7.0.17.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\7.0.17\\microsoft.aspnetcore.cryptography.keyderivation.7.0.17.nupkg.sha512",

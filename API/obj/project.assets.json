@@ -4514,11 +4514,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop\\BeaPetAPI\\API\\API.csproj",
+      "projectUniqueName": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop_MaNguon\\BeaPetAPI\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop\\BeaPetAPI\\API\\API.csproj",
+      "projectPath": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop_MaNguon\\BeaPetAPI\\API\\API.csproj",
       "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-      "outputPath": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop\\BeaPetAPI\\API\\obj\\",
+      "outputPath": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop_MaNguon\\BeaPetAPI\\API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4535,14 +4535,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop\\BeaPetAPI\\Application\\Application.csproj": {
-              "projectPath": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop\\BeaPetAPI\\Application\\Application.csproj"
+            "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop_MaNguon\\BeaPetAPI\\Application\\Application.csproj": {
+              "projectPath": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop_MaNguon\\BeaPetAPI\\Application\\Application.csproj"
             },
-            "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop\\BeaPetAPI\\Core\\Core.csproj": {
-              "projectPath": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop\\BeaPetAPI\\Core\\Core.csproj"
+            "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop_MaNguon\\BeaPetAPI\\Core\\Core.csproj": {
+              "projectPath": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop_MaNguon\\BeaPetAPI\\Core\\Core.csproj"
             },
-            "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop\\BeaPetAPI\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop\\BeaPetAPI\\DataAccess\\DataAccess.csproj"
+            "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop_MaNguon\\BeaPetAPI\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop_MaNguon\\BeaPetAPI\\DataAccess\\DataAccess.csproj"
             }
           }
         }

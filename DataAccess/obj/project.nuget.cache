@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VptGVRbX+UMNJrO/CvmQd/3SSC9hHSO3kPaId3LzloY1O1QGtH2lUtFFccZcsDs83Ovc/mWnCnhrKwgEdZF1Aw==",
+  "dgSpecHash": "wsSdHfrLxMdQLkUL5E4OY60c1NiZ3xJ8btDpwiIwTYJVChIZzHKshWbsgG0gB9PDd6oPLMcHaVSVd8HNQPc0Nw==",
   "success": true,
-  "projectFilePath": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop\\BeaPetAPI\\DataAccess\\DataAccess.csproj",
+  "projectFilePath": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop_MaNguon\\BeaPetAPI\\DataAccess\\DataAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\admin\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

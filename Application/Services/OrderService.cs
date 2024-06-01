@@ -86,7 +86,7 @@ namespace Application.Services
                 throw new ApplicationException("NoContent");
 
             var _order = _mapper.Map<Order>(orderCreate);
-            _order.Status = "Đang chuẩn bị hàng!";
+            _order.Status = "Đang chuẩn bị hàng";
             _order.CreatedOn = DateTime.Now;
             await _unitOfWork.OrderRepository.Create(_order);
             await _unitOfWork.OrderRepository.SaveChange();
@@ -124,30 +124,46 @@ namespace Application.Services
             await _unitOfWork.OrderRepository.SaveChange();
             return _mapper.Map<OrderViewDto>(_order);
         }
-        public async Task<List<OrderStatisticalDto>> GetOrderStatiscal(string Status)
+        public async Task<List<OrderStatisticalDto>> GetOrderStatiscal(string Status, int fromMonth, int toMonth, int Year)
         {
-            var orders = _unitOfWork.OrderRepository.GetAll()
+            try
+            {   
+                var orders = _unitOfWork.OrderRepository.GetAll()
                 .Where(x => x.Status.Trim() == Status.Trim())
                 .OrderByDescending(x => x.CreatedOn);
-
-            var totalAmountByMonth = orders.GroupBy(o => new Tuple<int, int>(o.CreatedOn.Month, o.CreatedOn.Year))
-                               .ToDictionary(g => g.Key, g => g.Sum(o => o.TotalAmount));
-            var totalOrdersByMonth = orders.GroupBy(o => new Tuple<int, int>(o.CreatedOn.Month, o.CreatedOn.Year))
-                               .ToDictionary(g => g.Key, g => g.Count());
-            List<OrderStatisticalDto> orderStatisticals = new List<OrderStatisticalDto>();
-            int i = 0;
-            foreach(var result in totalAmountByMonth)
-            {
-                OrderStatisticalDto order = new OrderStatisticalDto()
+                if (Year != 0)
                 {
-                    Month = result.Key.Item1.ToString() + "/" + result.Key.Item2.ToString(),
-                    SellPrice = result.Value,
-                    TotalOrder = totalOrdersByMonth[result.Key]
-                };
-                orderStatisticals.Add(order);
-            }    
- 
-            return orderStatisticals;
+                    orders = _unitOfWork.OrderRepository.GetAll()
+                    .Where(x => x.Status.Trim() == Status.Trim() && x.CreatedOn.Year == Year)
+                    .OrderByDescending(x => x.CreatedOn);
+                }    
+                var totalAmountByMonth = orders.GroupBy(o => new Tuple<int, int>(o.CreatedOn.Month, o.CreatedOn.Year))
+                                   .ToDictionary(g => g.Key, g => g.Sum(o => o.TotalAmount));
+                var totalOrdersByMonth = orders.GroupBy(o => new Tuple<int, int>(o.CreatedOn.Month, o.CreatedOn.Year))
+                                   .ToDictionary(g => g.Key, g => g.Count());
+                List<OrderStatisticalDto> orderStatisticals = new List<OrderStatisticalDto>();
+                int i = 0;
+                foreach (var result in totalAmountByMonth)
+                {
+                    OrderStatisticalDto order = new OrderStatisticalDto()
+                    {
+                        Month = result.Key.Item1.ToString() + "/" + result.Key.Item2.ToString(),
+                        Month1 = result.Key.Item1,
+                        SellPrice = result.Value,
+                        TotalOrder = totalOrdersByMonth[result.Key]
+                    };
+                    orderStatisticals.Add(order);
+                }
+
+                if (fromMonth!=0 && toMonth!=0 && Year!=0)
+                    return orderStatisticals.Where(x=>x.Month1 >= fromMonth && x.Month1 <= toMonth).ToList();
+                return orderStatisticals;
+            }
+            catch(Exception e)
+            {
+                throw new ApplicationException("Error: " + e.Message);
+            }
+            
         }
 
         public Task<bool> Delete(int id)

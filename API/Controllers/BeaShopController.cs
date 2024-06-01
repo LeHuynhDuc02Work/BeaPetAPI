@@ -211,9 +211,9 @@ namespace API.Controllers
         }
 
         [HttpGet("order-statiscal")]
-        public async Task<IActionResult> GetOrderStatiscal(string status)
+        public async Task<IActionResult> GetOrderStatiscal(string status, int fromMonth, int toMonth, int Year)
         {
-            return Ok(await _orderService.GetOrderStatiscal(status));
+            return Ok(await _orderService.GetOrderStatiscal(status, fromMonth, toMonth, Year));
         }
 
         [HttpGet("order-detai/products/order/{id}")]
