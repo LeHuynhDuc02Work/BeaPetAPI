@@ -55,9 +55,11 @@ namespace Application.Services
                 if (productAnalyses.Count < 10)
                 {
                     var orderDetails = _unitOfWork.OrderDetailRepository.GetAll();
-                    var products = orderDetails.GroupBy(o => o.ProductId)
-                                            .ToDictionary(g => g.Key, g => g.Count())
-                                            .OrderBy(x => x.Value);
+                    var products  = orderDetails
+                        .GroupBy(o => o.ProductId)
+                        .Select(g => new { ProductId = g.Key, TotalQuantity = g.Sum(od => od.Quantity) })
+                        .OrderByDescending(p => p.TotalQuantity)
+                        .ToDictionary(p => p.ProductId, p => p.TotalQuantity);
                     int index = productAnalyses.Count;
                  
                     foreach (var item in products)
@@ -80,9 +82,11 @@ namespace Application.Services
             else
             {
                 var orderDetails = _unitOfWork.OrderDetailRepository.GetAll();
-                var products = orderDetails.GroupBy(o => o.ProductId)
-                                        .ToDictionary(g => g.Key, g => g.Count())
-                                        .OrderByDescending(x => x.Value);
+                var products = orderDetails
+                        .GroupBy(o => o.ProductId)
+                        .Select(g => new { ProductId = g.Key, TotalQuantity = g.Sum(od => od.Quantity) })
+                        .OrderByDescending(p => p.TotalQuantity)
+                        .ToDictionary(p => p.ProductId, p => p.TotalQuantity);
                 List<ProductAnalysDto> productAnalyses = new List<ProductAnalysDto>();
                 foreach (var item in products)
                 {

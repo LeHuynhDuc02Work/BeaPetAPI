@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "WpZPj9Jtm7Flb2cY0IAmNna3C47iUnxdyc73wdgj6Ak=",
+  "Hash": "KNJGC14yczazglMlrtpoltwAJveKS7wZuofQL/YLLBY=",
   "Source": "API",
   "BasePath": "_content/API",
   "Mode": "Default",
@@ -151,6 +151,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\brand8.jpg"
+    },
+    {
+      "Identity": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop_MaNguon\\BeaPetAPI\\API\\wwwroot\\images\\fanpage.jpg",
+      "SourceId": "API",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop_MaNguon\\BeaPetAPI\\API\\wwwroot\\",
+      "BasePath": "_content/API",
+      "RelativePath": "images/fanpage.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\fanpage.jpg"
+    },
+    {
+      "Identity": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop_MaNguon\\BeaPetAPI\\API\\wwwroot\\images\\fanpage1.jpg",
+      "SourceId": "API",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop_MaNguon\\BeaPetAPI\\API\\wwwroot\\",
+      "BasePath": "_content/API",
+      "RelativePath": "images/fanpage1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\fanpage1.jpg"
     },
     {
       "Identity": "D:\\DAI_HOC\\DoAnTotNghiep\\BeaPetShop_MaNguon\\BeaPetAPI\\API\\wwwroot\\images\\news1.jpg",
